@@ -1,5 +1,7 @@
 package net.pl3x.map.core;
 
+import net.pl3x.map.core.configuration.Config;
+
 import java.util.logging.Level;
 import java.util.logging.LogManager;
 
@@ -16,11 +18,39 @@ public class Logger {
         }
     }
 
-    public static void log(Level level, String msg) {
-        LOGGER.log(level, msg);
+    public static void debug(String msg) {
+        if (Config.DEBUG_MODE) {
+            LOGGER.log(Level.INFO, "[DEBUG] " + msg);
+        }
     }
 
-    public static void log(Level level, String msg, Throwable thrown) {
-        LOGGER.log(level, msg, thrown);
+    public static void debug(String msg, Throwable thrown) {
+        if (Config.DEBUG_MODE) {
+            LOGGER.log(Level.INFO, "[DEBUG] " + msg, thrown);
+        }
+    }
+
+    public static void info(String msg) {
+        LOGGER.log(Level.INFO, msg);
+    }
+
+    public static void info(String msg, Throwable thrown) {
+        LOGGER.log(Level.INFO, msg, thrown);
+    }
+
+    public static void warn(String msg) {
+        LOGGER.log(Level.WARNING, msg);
+    }
+
+    public static void warn(String msg, Throwable thrown) {
+        LOGGER.log(Level.WARNING, msg, thrown);
+    }
+
+    public static void error(String msg) {
+        LOGGER.log(Level.SEVERE, msg);
+    }
+
+    public static void error(String msg, Throwable thrown) {
+        LOGGER.log(Level.SEVERE, msg, thrown);
     }
 }
