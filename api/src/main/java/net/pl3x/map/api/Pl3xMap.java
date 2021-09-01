@@ -22,6 +22,13 @@ public interface Pl3xMap {
     }
 
     /**
+     * Get the prefix for command output
+     *
+     * @return command prefix
+     */
+    String getCommandPrefix();
+
+    /**
      * Get the player manager
      *
      * @return player manager

@@ -7,6 +7,7 @@ import net.kyori.adventure.platform.fabric.FabricServerAudiences;
 import net.pl3x.map.api.Pl3xMap;
 import net.pl3x.map.api.player.PlayerManager;
 import net.pl3x.map.api.world.WorldManager;
+import net.pl3x.map.core.configuration.Lang;
 import net.pl3x.map.fabric.server.command.Pl3xMapCommand;
 import net.pl3x.map.fabric.server.player.FabricPlayerManager;
 import net.pl3x.map.fabric.server.world.FabricWorldManager;
@@ -36,6 +37,11 @@ public class Pl3xMapFabric implements ModInitializer, Pl3xMap {
 
         // register server side command
         CommandRegistrationCallback.EVENT.register((dispatcher, dedicated) -> new Pl3xMapCommand(dispatcher));
+    }
+
+    @Override
+    public String getCommandPrefix() {
+        return Lang.COMMAND_PREFIX;
     }
 
     @Override

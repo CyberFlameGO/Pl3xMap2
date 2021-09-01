@@ -4,12 +4,12 @@ import net.kyori.adventure.platform.bukkit.BukkitAudiences;
 import net.pl3x.map.api.Pl3xMap;
 import net.pl3x.map.api.player.PlayerManager;
 import net.pl3x.map.api.world.WorldManager;
-import net.pl3x.map.paper.command.Pl3xMapCommand;
-import net.pl3x.map.paper.player.PaperPlayerManager;
-import net.pl3x.map.paper.world.PaperWorldManager;
 import net.pl3x.map.core.Logger;
 import net.pl3x.map.core.configuration.Config;
 import net.pl3x.map.core.configuration.Lang;
+import net.pl3x.map.paper.command.Pl3xMapCommand;
+import net.pl3x.map.paper.player.PaperPlayerManager;
+import net.pl3x.map.paper.world.PaperWorldManager;
 import org.bstats.bukkit.Metrics;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -59,6 +59,11 @@ public class Pl3xMapPaper extends JavaPlugin implements Pl3xMap {
             this.audiences.close();
             this.audiences = null;
         }
+    }
+
+    @Override
+    public String getCommandPrefix() {
+        return Lang.COMMAND_PREFIX;
     }
 
     @Override
