@@ -1,0 +1,45 @@
+name: "${name}"
+main: "${group}.${name}"
+description: "${description}"
+version: "${version}"
+author: "BillyGalbreath"
+api-version: "1.17"
+
+commands:
+  map:
+    description: Controls the Pl3xMap plugin
+    usage: /<command> help
+    aliases:
+      - pl3xmap
+
+permissions:
+  pl3xmap.command.map:
+    default: op
+
+  pl3xmap.command.help:
+    default: op
+    children:
+      pl3xmap.command.map: true
+
+  pl3xmap.command.hide:
+    default: op
+    children:
+      pl3xmap.command.map: true
+  pl3xmap.command.hide.others:
+    default: op
+    children:
+      pl3xmap.command.hide: true
+
+  pl3xmap.command.show:
+    default: op
+    children:
+      pl3xmap.command.map: true
+  pl3xmap.command.show.others:
+    default: op
+    children:
+      pl3xmap.command.show: true
+
+  pl3xmap.command.reload:
+    default: op
+    children:
+      pl3xmap.command.map: true
